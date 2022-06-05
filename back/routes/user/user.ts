@@ -1,6 +1,6 @@
 import { FastifyPluginCallback } from "fastify";
 import { FromSchema } from "json-schema-to-ts";
-import { createUserDto, getUserByIdDto } from "./user.dto";
+import { createUserDto, getUserByIdDto } from "../../../types/user.dto";
 
 const user: FastifyPluginCallback = (server, _opt, done) => {
   server.get("/", async (_request, _reply) => {

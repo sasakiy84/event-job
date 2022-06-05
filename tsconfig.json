@@ -11,7 +11,12 @@
     "isolatedModules": true,
     "esModuleInterop": true,
     "lib": ["esnext", "dom"],
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "paths": {
+      "@components/*": [
+        "./front/components/"
+      ]
+    }
   },
   "include": ["front/**/*.ts", "front/**/*.d.ts", "front/**/*.tsx", "front/**/*.vue"],
   "references": [{ "path": "./tsconfig.node.json" }]
