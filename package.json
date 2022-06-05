@@ -1,0 +1,38 @@
+{
+  "name": "event-shifter",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "npm-run-all --parallel dev:*",
+    "dev:front": "vite 1> /dev/null",
+    "dev:back-build": "tsc --watch --outDir back/dist  back/*.ts 1> /dev/null",
+    "dev:back-start": "nodemon --watch back/dist back/dist/index.js",
+    "build": "vue-tsc --noEmit && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@fastify/cors": "^7.0.0",
+    "@prisma/client": "^3.14.0",
+    "axios": "^0.27.2",
+    "bulma": "^0.9.4",
+    "fastify": "^3.29.0",
+    "fastify-plugin": "^3.0.1",
+    "json-schema-to-ts": "^2.5.3",
+    "nodemon": "^2.0.16",
+    "npm-run-all": "^4.1.5",
+    "prisma": "^3.14.0",
+    "vue": "^3.2.25",
+    "vue-router": "^4.0.15"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.39",
+    "@vitejs/plugin-vue": "^2.3.3",
+    "sass": "^1.52.2",
+    "typescript": "^4.5.4",
+    "vite": "^2.9.9",
+    "vue-tsc": "^0.34.7"
+  },
+  "prisma": {
+    "schema": "back/db/schema.prisma"
+  }
+}
