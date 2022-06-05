@@ -21,26 +21,16 @@
 </template>
 <script setup lang="ts">
 import useApiClient from "../../composables/useApiClient";
+import { getUsersResponseDtoType } from "../../../types/user.type"
 import { onBeforeMount, ref } from "vue";
 import { RouterLink } from "vue-router";
 
-type User = {
-  name: string;
-  id: number;
-  email: string;
-  profile: {
-    bio: string;
-  };
-};
-
-type Users = User[];
-
-const users = ref<Users>([]);
+const users = ref<getUsersResponseDtoType>([]);
 
 const { apiClient } = useApiClient();
 
 onBeforeMount(async () => {
-  const { data } = await apiClient.get<Users>("user");
+  const { data } = await apiClient.get<getUsersResponseDtoType>("user");
   users.value = data;
   console.log(users.value);
 });
