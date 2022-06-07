@@ -15,7 +15,9 @@ const user: FastifyPluginCallback = (server, _opt, done) => {
     "/",
     {
       schema: {
-        response: getUsersResponseDto,
+        response: {
+          "200": getUsersResponseDto
+        },
       },
     },
     async (_request, _reply) => {
@@ -36,7 +38,9 @@ const user: FastifyPluginCallback = (server, _opt, done) => {
     {
       schema: {
         params: getUserByIdRequestDto,
-        response: getUserByIdResponseDto,
+        response: {
+          "200": getUserByIdResponseDto
+        },
       },
     },
     async (request, _reply) => {

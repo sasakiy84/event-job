@@ -4,11 +4,11 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "npm-run-all --parallel dev:*",
-    "dev:front": "vite 1> /dev/null",
-    "dev:back-build": "tsc --watch --outDir back/dist  back/*.ts 1> /dev/null",
-    "dev:back-start": "nodemon --watch back/dist back/dist/index.js",
+    "dev:front": "vite",
+    "dev:back": "tsc-watch --noClear --outDir back/dist/  back/*.ts --onSuccess \"node back/dist/back/index.js\"",
     "build": "vue-tsc --noEmit && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "prisma:init": "prisma migrate dev --name init"
   },
   "dependencies": {
     "@fastify/cors": "^7.0.0",
@@ -18,8 +18,6 @@
     "fastify": "^3.29.0",
     "fastify-plugin": "^3.0.1",
     "json-schema-to-ts": "^2.5.3",
-    "nodemon": "^2.0.16",
-    "npm-run-all": "^4.1.5",
     "prisma": "^3.14.0",
     "vue": "^3.2.25",
     "vue-router": "^4.0.15"
@@ -27,7 +25,9 @@
   "devDependencies": {
     "@types/node": "^17.0.39",
     "@vitejs/plugin-vue": "^2.3.3",
+    "npm-run-all": "^4.1.5",
     "sass": "^1.52.2",
+    "tsc-watch": "^5.0.3",
     "typescript": "^4.5.4",
     "vite": "^2.9.9",
     "vue-tsc": "^0.34.7"
